@@ -1,11 +1,16 @@
 import express from 'express'
 import mongoose from 'mongoose'
+import Cors from 'Cors';
+
 import Cards from './dbCards.js'
 
 const app = express();
 const port = process.env.PORT || 8001;
 
 const connection_url = 'mongodb+srv://admin:27ayxE2PRitp2a9r@cluster0.jvazg.mongodb.net/tinderdb?retryWrites=true&w=majority'
+
+app.use(express.json());
+app.use(Cors());
 
 mongoose.connect(connection_url, {
   useNewUrlParser: true,
